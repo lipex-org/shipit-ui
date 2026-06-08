@@ -1,0 +1,49 @@
+{
+    "name": "gilads-otiannoh254/shipit-ui",
+    "description": "Shipit UI Interface",
+    "license": "MIT",
+    "type": "package",
+    "repositories": {
+        "gilads-otiannoh254/shipit": {
+            "type": "path",
+            "url": "../package",
+            "options": {
+                "symlink": true
+            }
+        }
+    },
+    "require": {
+        "php": "^8.5",
+        "codeigniter4/framework": "^4.7",
+        "jengo/base": "^1.0",
+        "gilads-otiannoh254/shipit": "dev-main"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9",
+        "mikey179/vfsstream": "^1.6",
+        "phpunit/phpunit": "^10.5.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "app/Config/"
+        },
+        "exclude-from-classmap": [
+            "**/Database/Migrations/**"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Support\\": "tests/_support",
+            "Tests\\e2e\\": "tests/e2e"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

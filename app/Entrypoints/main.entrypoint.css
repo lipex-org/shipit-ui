@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@utility tooltip {
+    @apply invisible absolute z-50 px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap border border-gray-700 pointer-events-none;
+}
+
+@utility has-tooltip {
+    @apply relative cursor-pointer;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply visible opacity-100;
+}
+
+.project-card-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10;
+}
+
+/* Toast System */
+#toast-container {
+    @apply fixed bottom-5 right-5 z-[100] flex flex-col gap-3 pointer-events-none;
+}
+
+@utility toast-item {
+    @apply pointer-events-auto flex items-center gap-3 px-4 py-3 rounded-xl bg-gray-900/90 backdrop-blur-md border border-gray-800 shadow-2xl transition-all duration-500 translate-x-10 opacity-0;
+}
+
+.toast-show {
+    @apply translate-x-0 opacity-100;
+}
+
+/* Custom scrollbar for log viewer */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}

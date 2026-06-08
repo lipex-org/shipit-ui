@@ -1,0 +1,38 @@
+{
+  "app/Entrypoints/dashboard.entrypoint.ts": {
+    "file": "assets/app_Entrypoints_dashboard_entrypoint_ts-C47GTvSR.js",
+    "name": "app_Entrypoints_dashboard_entrypoint_ts",
+    "src": "app/Entrypoints/dashboard.entrypoint.ts",
+    "isEntry": true
+  },
+  "app/Entrypoints/home.entrypoint.ts": {
+    "file": "assets/app_Entrypoints_home_entrypoint_ts-CHbOm49T.js",
+    "name": "app_Entrypoints_home_entrypoint_ts",
+    "src": "app/Entrypoints/home.entrypoint.ts",
+    "isEntry": true
+  },
+  "app/Entrypoints/login.entrypoint.ts": {
+    "file": "assets/app_Entrypoints_login_entrypoint_ts-CUPDwgHN.js",
+    "name": "app_Entrypoints_login_entrypoint_ts",
+    "src": "app/Entrypoints/login.entrypoint.ts",
+    "isEntry": true
+  },
+  "app/Entrypoints/main.entrypoint.css": {
+    "file": "assets/app_Entrypoints_main_entrypoint_css-CFPxH8hj.css",
+    "name": "app_Entrypoints_main_entrypoint_css",
+    "names": [
+      "app_Entrypoints_main_entrypoint_css.css"
+    ],
+    "src": "app/Entrypoints/main.entrypoint.css",
+    "isEntry": true
+  },
+  "app/Entrypoints/main.entrypoint.ts": {
+    "file": "assets/app_Entrypoints_main_entrypoint_ts-BljP3aGh.js",
+    "name": "app_Entrypoints_main_entrypoint_ts",
+    "src": "app/Entrypoints/main.entrypoint.ts",
+    "isEntry": true,
+    "css": [
+      "assets/app_Entrypoints_main_entrypoint_css-CFPxH8hj.css"
+    ]
+  }
+}

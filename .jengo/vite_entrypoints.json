@@ -1,0 +1,7 @@
+[
+    "app\/Entrypoints\/dashboard.entrypoint.ts",
+    "app\/Entrypoints\/home.entrypoint.ts",
+    "app\/Entrypoints\/login.entrypoint.ts",
+    "app\/Entrypoints\/main.entrypoint.ts",
+    "app\/Entrypoints\/main.entrypoint.css"
+]
