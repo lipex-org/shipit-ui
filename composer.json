@@ -1,10 +1,10 @@
 {
-    "name": "gilads-otiannoh254/shipit-ui",
+    "name": "lipex-org/shipit-ui",
     "description": "Shipit UI Interface",
     "license": "MIT",
     "type": "package",
     "repositories": {
-        "gilads-otiannoh254/shipit": {
+        "lipex-org/shipit-cli": {
             "type": "path",
             "url": "../package",
             "options": {
@@ -16,7 +16,7 @@
         "php": "^8.5",
         "codeigniter4/framework": "^4.7",
         "jengo/base": "^1.0",
-        "gilads-otiannoh254/shipit": "dev-main"
+        "lipex-org/shipit-cli": "dev-main"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

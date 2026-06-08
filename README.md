@@ -1,69 +1,95 @@
-# CodeIgniter 4 Application Starter
+# ShipIt UI
 
-## What is CodeIgniter?
+[![✨ Version 0.0.2 Ready](https://img.shields.io/badge/version-0.0.2-blue.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**The missing bridge between Git and your server.**
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+ShipIt UI is the official web-based management interface for the ShipIt deployment tool. It provides a simple, secure, and zero-downtime deployment workflow specifically optimized for Shared Hosting and VPS environments.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## 🚀 Key Features
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Zero-Downtime Deployments:** Automatic backups and safe merge logic ensure your applications stay online during updates.
+- **Project Dashboard:** A centralized overview of all your registered projects and their deployment status.
+- **One-Click Actions:** Trigger deployments or roll back to previous versions instantly from the browser.
+- **Live Monitoring:** Real-time polling of deployment and rollback logs to monitor progress as it happens.
+- **Environment Management:** Edit project-specific `.env` files and deployment configurations (`.deploy/config.json`) directly through the interface.
+- **Automated Webhooks:** Seamless integration with GitHub, GitLab, and Bitbucket for automated "push-to-deploy" workflows.
+- **Environment Aware:** Built-in support for modern frameworks like CodeIgniter 4, Laravel, and React, including automated server permission handling.
+- **Security First:** Permission-based project management and secure session-based authentication.
 
-## Installation & updates
+## 🛠 Tech Stack
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+- **Backend:** [CodeIgniter 4](https://codeigniter.com/) (PHP 8.2+)
+- **Frontend:** [Vite](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/), [Turbo](https://turbo.hotwired.dev/)
+- **Core Engine:** [lipex-org/shipit-cli](https://github.com/lipex-org/shipit-cli)
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## 📦 Installation
 
-## Setup
+### Prerequisites
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+- PHP 8.2 or higher
+- Composer
+- Node.js & pnpm (for frontend assets)
+- Git
 
-## Important Change with index.php
+### Setup Steps
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/lipex-org/shipit-ui.git
+   cd shipit-ui
+   ```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+2. **Install PHP dependencies:**
+   ```bash
+   composer install
+   ```
 
-**Please** read the user guide for a better explanation of how CI4 works!
+3. **Install Frontend dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-## Repository Management
+4. **Configuration:**
+   Copy the `env` template to `.env` and configure your environment:
+   ```bash
+   cp env .env
+   ```
+   *Note: Ensure `app.baseURL` and `database` settings are correctly configured.*
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+5. **Build Assets:**
+   ```bash
+   pnpm run build
+   ```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+6. **Initialize Database:**
+   ```bash
+   php spark migrate
+   ```
 
-## Server Requirements
+## 🖥 Usage
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+### Running the Development Server
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+To start the local development server:
+```bash
+php spark serve
+```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+For frontend asset development with HMR:
+```bash
+pnpm run dev
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### Deployment Configuration
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+ShipIt looks for a `.deploy/config.json` file in each managed project. You can initialize a project and its configuration directly through the ShipIt UI dashboard.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue for any bugs or feature requests.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
