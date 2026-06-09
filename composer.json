@@ -7,7 +7,7 @@
         "php": "^8.5",
         "codeigniter4/framework": "^4.7",
         "jengo/base": "^1.0",
-        "lipex-org/shipit-cli": "0.0.3-alpha"
+        "lipex-org/shipit-cli": "0.0.4-alpha"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

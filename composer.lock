@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4d1ec2f8cb25f2f49220e4e5d2593e7",
+    "content-hash": "91bf97068b224d3a32a6a574001f9fa4",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -258,16 +258,16 @@
         },
         {
             "name": "lipex-org/shipit-cli",
-            "version": "v0.0.3-alpha",
+            "version": "v0.0.4-alpha",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lipex-org/shipit-cli.git",
-                "reference": "00e38229850964502260fb51f6cc115c90a37c5d"
+                "reference": "c9a09c33b7065c4a5707f84262df93adbe81f8ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lipex-org/shipit-cli/zipball/00e38229850964502260fb51f6cc115c90a37c5d",
-                "reference": "00e38229850964502260fb51f6cc115c90a37c5d",
+                "url": "https://api.github.com/repos/lipex-org/shipit-cli/zipball/c9a09c33b7065c4a5707f84262df93adbe81f8ed",
+                "reference": "c9a09c33b7065c4a5707f84262df93adbe81f8ed",
                 "shasum": ""
             },
             "require": {
@@ -292,9 +292,9 @@
             "description": "A professional, modular CLI tool for PHP deployments",
             "support": {
                 "issues": "https://github.com/lipex-org/shipit-cli/issues",
-                "source": "https://github.com/lipex-org/shipit-cli/tree/v0.0.3-alpha"
+                "source": "https://github.com/lipex-org/shipit-cli/tree/v0.0.4-alpha"
             },
-            "time": "2026-06-09T13:00:33+00:00"
+            "time": "2026-06-09T13:25:33+00:00"
         },
         {
             "name": "mindplay/php-vite",
