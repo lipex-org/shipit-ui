@@ -1,6 +1,6 @@
 # ShipIt UI
 
-[![✨ Version 0.0.2 Ready](https://img.shields.io/badge/version-0.0.2-blue.svg)](#)
+[![✨ Version 0.0.3-alpha Ready](https://img.shields.io/badge/version-0.0.3--alpha-blue.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **The missing bridge between Git and your server.**

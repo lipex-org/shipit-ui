@@ -11,7 +11,7 @@
 <div class="min-h-[90vh] flex flex-col items-center justify-center text-center px-4 bg-gray-950">
     <div class="space-y-8 max-w-3xl">
         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-wider uppercase">
-            <span>✨ Version 0.0.2 Ready</span>
+            <span>✨ Version 0.0.3-alpha Ready</span>
         </div>
         <h1 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight">
             Deploy with <span class="text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">ShipIt</span>
