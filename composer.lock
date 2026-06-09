@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae72a722851c11cfd02d9e19da72e022",
+    "content-hash": "f1f42d5508b0a059cc60267f034e3372",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -147,48 +147,6 @@
             "time": "2024-11-21T13:46:39+00:00"
         },
         {
-            "name": "gilads-otiannoh254/shipit",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../package",
-                "reference": "29c02e1f5a7abac947568340f7ae3cd2c8f747d1"
-            },
-            "require": {
-                "php": ">=8.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^13.1"
-            },
-            "bin": [
-                "bin/shipit"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ShipIt\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "ShipIt\\Tests\\": "tests/",
-                    "ShipIt\\Tests\\Support\\": "tests/_support"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit --colors=always"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "A professional, modular CLI tool for PHP deployments",
-            "transport-options": {
-                "relative": true
-            }
-        },
-        {
             "name": "jengo/base",
             "version": "v1.0.4",
             "source": {
@@ -297,6 +255,49 @@
                 }
             ],
             "time": "2025-10-14T18:31:13+00:00"
+        },
+        {
+            "name": "lipex-org/shipit-cli",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../package",
+                "reference": "00e38229850964502260fb51f6cc115c90a37c5d"
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^13.1"
+            },
+            "bin": [
+                "bin/shipit"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ShipIt\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ShipIt\\Tests\\": "tests/",
+                    "ShipIt\\Tests\\Support\\": "tests/_support"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit --colors=always"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A professional, modular CLI tool for PHP deployments",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
         },
         {
             "name": "mindplay/php-vite",
@@ -2237,12 +2238,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "gilads-otiannoh254/shipit": 20
+        "lipex-org/shipit-cli": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.2"
+        "php": "^8.5"
     },
     "platform-dev": {},
     "plugin-api-version": "2.9.0"
