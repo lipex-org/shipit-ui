@@ -3,29 +3,11 @@
     "description": "Shipit UI Interface",
     "license": "MIT",
     "type": "package",
-    "repositories": [
-        {
-            "name": "local",
-            "type": "path",
-            "url": "../package",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "name": "lipex-org/shipit-cli",
-            "type": "path",
-            "url": "../package",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "require": {
         "php": "^8.5",
         "codeigniter4/framework": "^4.7",
         "jengo/base": "^1.0",
-        "lipex-org/shipit-cli": "dev-main"
+        "lipex-org/shipit-cli": "0.0.3-alpha"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9",

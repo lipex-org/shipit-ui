@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1f42d5508b0a059cc60267f034e3372",
+    "content-hash": "c4d1ec2f8cb25f2f49220e4e5d2593e7",
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -151,12 +151,12 @@
             "version": "v1.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jengo-php/base.git",
+                "url": "https://github.com/lipex-org/jengo-base.git",
                 "reference": "9b33055f11d27f661ecacd7b75e9d1d93fca3ab5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jengo-php/base/zipball/9b33055f11d27f661ecacd7b75e9d1d93fca3ab5",
+                "url": "https://api.github.com/repos/lipex-org/jengo-base/zipball/9b33055f11d27f661ecacd7b75e9d1d93fca3ab5",
                 "reference": "9b33055f11d27f661ecacd7b75e9d1d93fca3ab5",
                 "shasum": ""
             },
@@ -258,11 +258,17 @@
         },
         {
             "name": "lipex-org/shipit-cli",
-            "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../package",
+            "version": "v0.0.3-alpha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lipex-org/shipit-cli.git",
                 "reference": "00e38229850964502260fb51f6cc115c90a37c5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lipex-org/shipit-cli/zipball/00e38229850964502260fb51f6cc115c90a37c5d",
+                "reference": "00e38229850964502260fb51f6cc115c90a37c5d",
+                "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
@@ -279,25 +285,16 @@
                     "ShipIt\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "ShipIt\\Tests\\": "tests/",
-                    "ShipIt\\Tests\\Support\\": "tests/_support"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit --colors=always"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "A professional, modular CLI tool for PHP deployments",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/lipex-org/shipit-cli/issues",
+                "source": "https://github.com/lipex-org/shipit-cli/tree/v0.0.3-alpha"
+            },
+            "time": "2026-06-09T13:00:33+00:00"
         },
         {
             "name": "mindplay/php-vite",
@@ -2238,7 +2235,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "lipex-org/shipit-cli": 20
+        "lipex-org/shipit-cli": 15
     },
     "prefer-stable": false,
     "prefer-lowest": false,
