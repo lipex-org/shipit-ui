@@ -85,4 +85,20 @@ abstract class BaseController extends Controller
 
         return false;
     }
+
+    protected function executeBackgroundCommand(string $runner, string $projectPath, string $command, string $logId, string $logFilePath, ?string $backup = null): void
+    {
+        $escapedProjectPath = escapeshellarg($projectPath);
+        $escapedLogPath = escapeshellarg($logFilePath);
+        $escapedLogId = escapeshellarg($logId);
+        $escapedBackup = $backup ? ' --backup ' . escapeshellarg($backup) : '';
+
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $cmd = "start /B cmd /C \"{$runner} --project {$escapedProjectPath} --command {$command}{$escapedBackup} --log-id {$escapedLogId} > {$escapedLogPath} 2>&1 & echo [FINISHED] >> {$escapedLogPath}\"";
+            pclose(popen($cmd, "r"));
+        } else {
+            $cmd = "nohup sh -c \"{$runner} --project {$escapedProjectPath} --command {$command}{$escapedBackup} --log-id {$escapedLogId} > {$escapedLogPath} 2>&1 ; echo '[FINISHED]' >> {$escapedLogPath}\" > /dev/null 2>&1 &";
+            shell_exec($cmd);
+        }
+    }
 }

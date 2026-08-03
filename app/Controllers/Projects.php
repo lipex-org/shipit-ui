@@ -72,9 +72,7 @@ class Projects extends BaseController
 
         $runner = getenv('SHIPIT_RUNNER') ?: 'php ' . escapeshellarg(ROOTPATH . 'spark') . ' shipit:run';
 
-        // Use the runner to execute via the ShipIt class (defaults to php spark shipit:run)
-        $cmd = "nohup sh -c \"{$runner} --project {$escapedProjectPath} --command deploy --log-id {$escapedLogId} > {$escapedLogPath} 2>&1 ; echo '[FINISHED]' >> {$escapedLogPath}\" > /dev/null 2>&1 &";
-        shell_exec($cmd);
+        $this->executeBackgroundCommand($runner, $resolvedPath, 'deploy', $logId, $logFilePath);
 
         return $this->response->setJSON([
             'status' => 'started',
@@ -169,9 +167,7 @@ class Projects extends BaseController
 
         $runner = getenv('SHIPIT_RUNNER') ?: 'php ' . escapeshellarg(ROOTPATH . 'spark') . ' shipit:run';
 
-        // Use the runner to execute via the ShipIt class (defaults to php spark shipit:run)
-        $cmd = "nohup sh -c \"{$runner} --project {$escapedProjectPath} --command rollback --backup {$escapedBackup} --log-id {$escapedLogId} > {$escapedLogPath} 2>&1 ; echo '[FINISHED]' >> {$escapedLogPath}\" > /dev/null 2>&1 &";
-        shell_exec($cmd);
+        $this->executeBackgroundCommand($runner, $resolvedPath, 'rollback', $logId, $logFilePath, $backup);
 
         return $this->response->setJSON([
             'status' => 'started',
@@ -328,7 +324,16 @@ class Projects extends BaseController
             ])->setStatusCode(403);
         }
 
-        $envFile = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . '.env';
+        $strategy = $this->shipit->getConfig()['strategy'] ?? 'copy';
+        if ($strategy === 'symlink') {
+            $sharedDir = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . 'shared';
+            if (!is_dir($sharedDir)) {
+                @mkdir($sharedDir, 0777, true);
+            }
+            $envFile = $sharedDir . DIRECTORY_SEPARATOR . '.env';
+        } else {
+            $envFile = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . '.env';
+        }
         $content = file_exists($envFile) ? file_get_contents($envFile) : '';
 
         return $this->response->setJSON([
@@ -385,7 +390,16 @@ class Projects extends BaseController
             ])->setStatusCode(403);
         }
 
-        $envFile = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . '.env';
+        $strategy = $this->shipit->getConfig()['strategy'] ?? 'copy';
+        if ($strategy === 'symlink') {
+            $sharedDir = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . 'shared';
+            if (!is_dir($sharedDir)) {
+                @mkdir($sharedDir, 0777, true);
+            }
+            $envFile = $sharedDir . DIRECTORY_SEPARATOR . '.env';
+        } else {
+            $envFile = ($resolvedPath ?: $projectPath) . DIRECTORY_SEPARATOR . '.env';
+        }
         
         if (file_put_contents($envFile, $content) === false) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Failed to write to .env file.'])->setStatusCode(500);

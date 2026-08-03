@@ -39,9 +39,34 @@ class Api extends BaseController
             ])->setStatusCode(404);
         }
 
+        $projectPath = $matchedProject['path'] ?? $matchedPath;
+
+        // Load project config to check for webhook_secret
+        $this->shipit->setRoot($projectPath);
+        $this->shipit->loadConfig();
+        $projectConfig = $this->shipit->getConfig();
+        $webhookSecret = $projectConfig['webhook_secret'] ?? null;
+
         // Parse the push payload from the Git provider.
         $rawBody = $this->request->getBody();
         $contentType = $this->request->getHeaderLine('Content-Type');
+
+        if (!empty($webhookSecret)) {
+            $incomingSignature = $this->request->getHeaderLine('X-Hub-Signature-256');
+            if (empty($incomingSignature)) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Missing X-Hub-Signature-256 header'
+                ])->setStatusCode(401);
+            }
+            $calculatedSignature = 'sha256=' . hash_hmac('sha256', $rawBody, $webhookSecret);
+            if (!hash_equals($calculatedSignature, $incomingSignature)) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Invalid webhook signature'
+                ])->setStatusCode(403);
+            }
+        }
 
         $isPing = false;
         if (!empty($rawBody)) {
@@ -115,9 +140,7 @@ class Api extends BaseController
             
             $runner = getenv('SHIPIT_RUNNER') ?: 'php ' . escapeshellarg(ROOTPATH . 'spark') . ' shipit:run';
 
-            // Execute the deployment in background via the runner (defaults to php spark shipit:run)
-            $cmd = "nohup sh -c \"{$runner} --project {$escapedProjectPath} --command deploy --log-id {$escapedLogId} > {$escapedLogPath} 2>&1 ; echo '[FINISHED]' >> {$escapedLogPath}\" > /dev/null 2>&1 &";
-            shell_exec($cmd);
+            $this->executeBackgroundCommand($runner, $projectPath, 'deploy', $logId, $logFilePath);
 
             return $this->response->setJSON([
                 'status' => 'started',
