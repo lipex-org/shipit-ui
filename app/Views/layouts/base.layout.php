@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? "Jengo Base App" ?></title>
+    <title><?= $title ?? "Shipit UI" ?></title>
 
     <script>
         window.siteUrl = '<?= rtrim(site_url(), '/') ?>';
@@ -30,4 +30,5 @@
 
     <?= $this->renderSection('footer') ?>
 </body>
+
 </html>
